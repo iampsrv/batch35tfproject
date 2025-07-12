@@ -25,6 +25,14 @@ resource "aws_vpc_security_group_ingress_rule" "ingressrule2" {
   to_port           = 8080
 }
 
+resource "aws_vpc_security_group_ingress_rule" "ingressrule3" {
+  security_group_id = aws_security_group.mysg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 5000
+  ip_protocol       = "tcp"
+  to_port           = 5000
+}
+
 resource "aws_vpc_security_group_egress_rule" "egressrule" {
   security_group_id = aws_security_group.mysg.id
   cidr_ipv4         = "0.0.0.0/0"
